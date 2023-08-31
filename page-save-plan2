@@ -1,0 +1,97 @@
+<?php 
+ if (!is_user_logged_in()) {
+    wp_redirect(esc_url(site_url('/')));
+    exit;
+  }
+?>
+
+
+<script type="text/javascript">
+function profilegood(){
+	window.location = "clients"
+};
+</script>
+
+<?php
+$select_product=$_POST['select_product'];
+
+$plan_name=$_POST['plan_name'];
+
+$client_id=$_POST['client_id'];
+
+$age_min1=$_POST['age_min1'];
+$age_min2=$_POST['age_min2'];
+$age_min3=$_POST['age_min3'];
+$age_min4=$_POST['age_min4'];
+$age_max1=$_POST['age_max1'];
+$age_max2=$_POST['age_max2'];
+$age_max3=$_POST['age_max3'];
+$age_max4=$_POST['age_max4'];
+
+
+$no_limit_spouse=$_POST['no_limit_spouse'];
+$no_limit_children=$_POST['no_limit_children'];
+$no_limit_parents=$_POST['no_limit_parents'];
+$no_limit_1=$_POST['no_limit_1'];
+$no_limit_2=$_POST['no_limit_2'];
+$no_limit_3=$_POST['no_limit_3'];
+$no_limit_4=$_POST['no_limit_4'];
+
+
+$age_limit_main=$_POST['age_limit_main'];
+$age_limit_spouse=$_POST['age_limit_spouse'];
+$age_limit_parents=$_POST['age_limit_parents'];
+
+
+$additional_info=$_POST['additional_info'];
+
+
+$supplier_group_id="";
+$choices= $_POST['yyy'];
+$services_choices= $_POST['yyyy'];
+$supplier_id="";
+$plan_id="";
+$plan_active=$_POST['plan_active'];
+if(isset($plan_active)){
+$plan_active_bit=1;	
+}else{
+$plan_active_bit=0;	
+}
+
+$user_active="1";
+
+
+$service_type="Included";
+
+	$inserted_plan = wp_insert_post([
+		'post_name'=> $plan_name, 
+		'post_title' => $plan_name,
+		'post_type' => 'plan',
+		'post_status' => 'Publish'
+		
+	]);
+
+
+  wp_update_post([
+	'ID' => $inserted_plan,
+	'post_title' => $plan_name,
+	'post_type' => 'plan',
+  ]);
+
+ $fillable = [
+	'field_5db92edaa0a86' => $client_id,
+	'field_5dba70248f8ea' => $select_product,
+	'field_5dba74138f8ee' => $age_limit_main
+	
+];	
+
+//  foreach ($fillable as $key => $no_branches){
+//	   update_field($key, $no_branches, $inserted_plan );
+//	} 	
+
+
+
+echo '<script type="text/javascript">'
+, 'profilegood();'
+, '</script>';	
+?>

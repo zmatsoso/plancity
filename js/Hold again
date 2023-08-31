@@ -1,0 +1,53 @@
+$('#0_client').html('Bonanh');
+ActCode = data.items;
+		
+		$.each(ActCode, function(index, ActCde) {
+		
+		
+		$('#0_client').append(`
+		
+						<div class="col-lg-4">
+        				<div class="properties_item">
+        					<div align="Center" class="pp_img">
+								<img class="img-fluid" src="img/properties/'+ActCde.fk_SupplierGroupID+'.png" alt="">
+							</div>
+									<h6 align="center">'+ActCde.Area+' Branch | +/-'+ActCde.distance+'km</h6> 
+		 						<div align="Center" class="badge-wrap">
+						<a href="javascript:contacts('+ActCde.supplier_id+')"><span class="bg-danger text-white badge py-2 px-3">Contacts</span></a>
+						<a href="javascript:slides('+ActCde.fk_SupplierGroupID+')"><span class="bg-warning text-white badge py-2 px-3">Gallery</span></a>
+						</div>
+								<h4 align="center"><font color="Red">'+ActCde.plan_name+'  Plan</font></h4>
+        					<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+        				
+        						<div align="Center" class="badge-wrap">
+ 						<a href="javascript:services('+ActCde.premium_id+')"><span class="bg-info text-white badge py-2 px-3">Benefits</span></a>
+        				<a href="javascript:limits('+ActCde.premium_id+')"><span class="bg-info text-white badge py-2 px-3">Limits</span></a>
+						<a href="javascript:probation('+ActCde.premium_id+')"><span class="bg-info text-white badge py-2 px-3">Probations</span></a>
+						<a href="javascript:other('+ActCde.premium_id+')"><span class="bg-info text-white badge py-2 px-3">Other Info</span></a>
+								</div>
+        						<div align="center" class="pp_footer">
+        							<h5><font color="Blue">R'+ActCde.amount+' p/m</font></h5>
+									<h6>Joining Free: R'+ActCde.joining_fee+'</h6>
+        							<a class="btn btn-primary py-2 mr-1" href="javascript:interested('+ActCde.premium_id+')"><font color="White">Im Interested</font></a>    
+											</div>
+							</div>
+        				</div>
+						</div>
+						
+						`);
+						
+						
+		});				
+	
+
+$('#please_wait').html('Our Top Search Results');
+$('#search-overlay__results').empty();
+
+		+ '&select_area='
+		+ select_area
+		+ '&product_type='
+		+ product_type
+		+ '&senior_citizen='
+		+ senior_citizen
+		+ '&select_director='
+		+ select_director

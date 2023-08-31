@@ -1,0 +1,28 @@
+switch(true){
+	
+case(($Senior=="true") && ($select_director=="")) :
+
+$items = array_filter($items, function ($item) {
+    return ($item['Age_Limit_Main'] > 65 && (($item['provider_type'] == $type1) OR (($item['provider_type'] == $type2))));
+});
+
+	break;
+
+	case(($Senior=="true") && ($select_director!="")) :
+$items = array_filter($items, function ($item) {
+    return ($item['ClientID'] == $select_director && $item['Age_Limit_Main'] > 65 && (($item['provider_type'] == $type1) OR (($item['provider_type'] == $type2))));
+});
+	break;
+
+	case(($Senior=="false") && ($select_director!="")) :
+$items = array_filter($items, function ($item) {
+    return ($item['ClientID'] == $select_director && (($item['provider_type'] == $type1) OR ($item['provider_type'] == $type2)));
+});
+	break;
+
+	default:
+$items = array_filter($items, function ($item) {
+    return ((($item['provider_type'] == $type1) OR (($item['provider_type'] == $type2))));
+});
+	
+}
